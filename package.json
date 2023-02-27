@@ -4,7 +4,7 @@
   "description": "A server that returns the risk of a client based off given information",
   "main": "calculator.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,7 @@
     "express": "^4.18.2"
   },
   "devDependencies": {
+    "jest": "^29.4.3",
     "node-fetch": "^2.6.0"
   }
 }

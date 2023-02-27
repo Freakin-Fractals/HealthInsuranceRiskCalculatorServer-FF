@@ -1,5 +1,6 @@
 const express = require('express')
 const { getRiskApi } = require('./lib/handlers')
+const handlers = require('./lib/handlers')
 
 const app = express()
 
