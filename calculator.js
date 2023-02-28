@@ -1,12 +1,25 @@
 const express = require('express')
-const { getRiskApi } = require('./lib/handlers')
-const handlers = require('./lib/handlers')
+const cors = require('cors')
+const url = require('url')
 
 const app = express()
+app.use(cors());
 
 const port = process.env.PORT || 3000
 
-app.get('/api/calculator', handlers.getRiskApi)
+app.get('/calculation', (request, response) => {
+	console.log('Calling "/add-two-integers" on the Node.js server.')
+	var inputs = url.parse(request.url, true).query
+  console.log(inputs)
+  let age = parseInt(inputs.age)
+	let height = parseInt(inputs.height)
+	let weight = parseInt(inputs.weight)
+  let blood = inputs.blood
+  let disease = parseInt(inputs.disease)
+  let sum = height + weight
+	response.type('text/plain')
+	response.json(sum.toString())
+})
 
 // custom 404 page
 app.use((req, res) => {
@@ -27,15 +40,3 @@ app.listen(port, () => console.log(
   `Express started on http://localhost:${port}; ` +
   `press Ctrl-C to terminate.`))
 
-// Use Express to publish static HTML, CSS, and JavaScript files that run in the browser. 
-
-/*
-app.use(express.static(__dirname + '/static'))
-
-const http = require('http')
-const port = process.env.PORT || 3000
-
-const server = http.createServer((req, res) => {
-  res.writeHead(200, { 'Content-Type': 'text/plain' })
-  res.end('Hello world!')
-})*/
