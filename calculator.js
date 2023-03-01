@@ -3,8 +3,14 @@ const fs = require('fs')
 const cors = require('cors')
 const url = require('url')
 
+const corsOptions ={
+  origin:'*', 
+  credentials:true,
+  optionSuccessStatus:200,
+}
+
 const app = express()
-app.use(cors());
+app.use(cors(corsOptions));
 
 function serveStaticFile(res, path, contentType, responseCode = 200) {
   fs.readFile(__dirname + path, (err, data) => {
