@@ -4,7 +4,7 @@
   "description": "A server that returns the risk of a client based off given information",
   "main": "calculator.js",
   "scripts": {
-    "test": "jest"
+    "start": "node calculator.js"
   },
   "repository": {
     "type": "git",
