@@ -1,11 +1,29 @@
 const express = require('express')
+const fs = require('fs')
 const cors = require('cors')
 const url = require('url')
 
 const app = express()
 app.use(cors());
 
+function serveStaticFile(res, path, contentType, responseCode = 200) {
+  fs.readFile(__dirname + path, (err, data) => {
+    if(err) {
+      res.writeHead(500, { 'Content-Type': 'text/plain' })
+      return res.end('500 - Internal Error')
+    }
+    res.writeHead(responseCode, { 'Content-Type': contentType })
+    res.end(data)
+  })
+}
+
 const port = process.env.PORT || 3000
+
+app.get('/', (req, res) => {
+  console.log('Calling "/home" on the Node.js server.')
+  serveStaticFile(res, '/index.html', 'text/html')
+
+})
 
 app.get('/calculation', (request, response) => {
 	console.log('Calling "/add-two-integers" on the Node.js server.')
