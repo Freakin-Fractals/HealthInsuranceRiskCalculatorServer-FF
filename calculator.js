@@ -45,8 +45,14 @@ app.get('/', (req, res) => {
 
 })
 
+app.get('/test', (req, res) => {
+  console.log('Calling "/test" on the Node.js server.')
+  serveStaticFile(res, '/index.html', 'text/html')
+
+})
+
 app.get('/calculation', (request, response) => {
-	console.log('Calling "/add-two-integers" on the Node.js server.')
+	console.log('Calling "/calculation" on the Node.js server.')
 	var inputs = url.parse(request.url, true).query
   //Using this we can see the values that the site sent us, and their names
   console.log(inputs)
