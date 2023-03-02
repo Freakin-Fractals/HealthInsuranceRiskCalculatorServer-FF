@@ -13,6 +13,16 @@ const corsOptions = {
 }
 
 const app = express()
+
+app.use((req, res, next) => {
+  response.setHeader(Access-Control-Allow-Origin, '*');
+  response.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+})
+
 app.options('*', cors(corsOptions));
 app.use(cors(corsOptions));
 
