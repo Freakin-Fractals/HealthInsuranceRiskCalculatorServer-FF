@@ -3,28 +3,28 @@ const fs = require('fs')
 const cors = require('cors')
 const url = require('url')
 
-const corsOptions = {
+/*const corsOptions = {
   origin: (origin, callback) => {
     callback(null, true);
   },
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
   allowedHeaders: ["Access-Control-Allow-Origin", "Origin", "X-Requested-With", "Content-Type", "Accept", "Authorization"],
   credentials: true
-}
+}*/
 
 const app = express()
 
-app.use((req, res, next) => {
-  response.setHeader(Access-Control-Allow-Origin, '*');
-  response.header(
+/*app.use((req, res, next) => {
+  res.setHeader(Access-Control-Allow-Origin, '*');
+  res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
   );
   next();
-})
+})*/
 
-app.options('*', cors(corsOptions));
-app.use(cors(corsOptions));
+//app.options('*', cors(corsOptions));
+app.use(cors());
 
 function serveStaticFile(res, path, contentType, responseCode = 200) {
   fs.readFile(__dirname + path, (err, data) => {
