@@ -22,8 +22,8 @@ const port = process.env.PORT || 3000
 
 app.get('/ping', (req, res) => {
   console.log('Calling "/pint" on the Node.js server.')
-  response.type('text/plain')
-	response.json('pong')
+  res.type('text/plain')
+	res.json('pong')
 })
 
 app.get('/calculation', (request, response) => {
