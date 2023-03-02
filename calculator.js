@@ -3,27 +3,8 @@ const fs = require('fs')
 const cors = require('cors')
 const url = require('url')
 
-/*const corsOptions = {
-  origin: (origin, callback) => {
-    callback(null, true);
-  },
-  methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
-  allowedHeaders: ["Access-Control-Allow-Origin", "Origin", "X-Requested-With", "Content-Type", "Accept", "Authorization"],
-  credentials: true
-}*/
-
 const app = express()
 
-/*app.use((req, res, next) => {
-  res.setHeader(Access-Control-Allow-Origin, '*');
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-})*/
-
-//app.options('*', cors(corsOptions));
 app.use(cors());
 
 function serveStaticFile(res, path, contentType, responseCode = 200) {
@@ -39,17 +20,11 @@ function serveStaticFile(res, path, contentType, responseCode = 200) {
 
 const port = process.env.PORT || 3000
 
-/*app.get('/', (req, res) => {
-  console.log('Calling "/home" on the Node.js server.')
-  serveStaticFile(res, '/index.html', 'text/html')
-
+app.get('/ping', (req, res) => {
+  console.log('Calling "/pint" on the Node.js server.')
+  response.type('text/plain')
+	response.json('pong')
 })
-
-app.get('/test', (req, res) => {
-  console.log('Calling "/test" on the Node.js server.')
-  serveStaticFile(res, '/index.html', 'text/html')
-
-})*/
 
 app.get('/calculation', (request, response) => {
 	console.log('Calling "/calculation" on the Node.js server.')
