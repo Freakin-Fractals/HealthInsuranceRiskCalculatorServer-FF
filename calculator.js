@@ -39,7 +39,7 @@ function serveStaticFile(res, path, contentType, responseCode = 200) {
 
 const port = process.env.PORT || 3000
 
-app.get('/', (req, res) => {
+/*app.get('/', (req, res) => {
   console.log('Calling "/home" on the Node.js server.')
   serveStaticFile(res, '/index.html', 'text/html')
 
@@ -49,7 +49,7 @@ app.get('/test', (req, res) => {
   console.log('Calling "/test" on the Node.js server.')
   serveStaticFile(res, '/index.html', 'text/html')
 
-})
+})*/
 
 app.get('/calculation', (request, response) => {
 	console.log('Calling "/calculation" on the Node.js server.')
