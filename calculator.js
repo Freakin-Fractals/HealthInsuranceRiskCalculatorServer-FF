@@ -3,13 +3,17 @@ const fs = require('fs')
 const cors = require('cors')
 const url = require('url')
 
-const corsOptions ={
-  origin:'*', 
-  credentials:true,
-  optionSuccessStatus:200,
+const corsOptions = {
+  origin: (origin, callback) => {
+    callback(null, true);
+  },
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+  allowedHeaders: ["Access-Control-Allow-Origin", "Origin", "X-Requested-With", "Content-Type", "Accept", "Authorization"],
+  credentials: true
 }
 
 const app = express()
+app.options('*', cors(corsOptions));
 app.use(cors(corsOptions));
 
 function serveStaticFile(res, path, contentType, responseCode = 200) {
