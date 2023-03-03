@@ -41,12 +41,25 @@ app.get('/calculation', (request, response) => {
 
   //Example of calucation; should be replaced with functions eventually
   let sum = height + weight
+  let agePoints = calcAge(age)
 
   //We return our results as an object, namdes of value returned need to be comunicated
-  let results = {"sum": sum.toString(),"age":  age,"blood":  blood,"dis":  disease}
+  let results = {"sum": sum.toString(),"age":  agePoints,"blood":  blood,"dis":  disease}
 	response.type('text/plain')
 	response.json(results)
 })
+
+function calcAge(age){
+  if (age < 30) {
+    return 0
+  } else if (age < 45) {
+    return 10
+  } else if (age < 60) {
+    return 20
+  } else {
+    return 30
+  }
+}
 
 // custom 404 page
 app.use((req, res) => {
