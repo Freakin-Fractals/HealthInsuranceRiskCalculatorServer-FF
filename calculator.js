@@ -63,7 +63,7 @@ function calcAge(age){
 }
 
 function calcBmi(height, weight){
-  var bmi = (weight/((height/100)^2))
+  var bmi = (weight/(height^2))
   if (bmi < 24.9) {
     return 0
   } else if (bmi < 29.9) {
