@@ -36,7 +36,7 @@ app.get('/calculation', (request, response) => {
   let age = parseInt(inputs.age)
 	let height = parseInt(inputs.height)
 	let weight = parseInt(inputs.weight)
-  let blood = inputs.blood
+  let blood = parseInt(inputs.blood)
   let disease = parseInt(inputs.disease)
 
   //Example of calucation; should be replaced with functions eventually
@@ -80,10 +80,10 @@ function calcBmi(height, weight){
         return "Error: Invalid BMI"
       }
     } else {
-      return "Error: Invalid weight"
+      return "Error: Invalid Weight"
     }
   } else {
-    return "Error: Invalid height"
+    return "Error: Invalid Height"
   }
 }
 
