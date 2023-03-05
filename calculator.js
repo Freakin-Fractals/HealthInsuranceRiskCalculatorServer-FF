@@ -43,9 +43,11 @@ app.get('/calculation', (request, response) => {
   let sum = height + weight
   let agePoints = calcAge(age)
   let bmiPoints = calcBmi(height, weight)
+  let bpPoints = calcBP(blood)
+  let diseasePoints = calcDisease(disease)
 
   //We return our results as an object, namdes of value returned need to be comunicated
-  let results = {"sum": sum.toString(),"age":  agePoints,"BMI":  bmiPoints,"blood":  blood,"dis":  disease}
+  let results = {"sum": sum.toString(),"age":  agePoints,"BMI":  bmiPoints,"blood":  bpPoints,"dis":  diseasePoints}
 	response.type('text/plain')
 	response.json(results)
 })
@@ -96,6 +98,24 @@ function calcBmi(height, weight){
     }
   } else {
     return "Error: Invalid Height"
+  }
+}
+
+function calcBP(bpStage) {
+  if (bpStage == 1) {
+    return 0
+  }
+  else if (bpStage == 2) {
+    return 15
+  }
+  else if (bpStage == 3){
+    return 30
+  }
+  else if (bpStage == 4){
+    return 75
+  }
+  else if (bpStage == 5){
+    return 100
   }
 }
 
