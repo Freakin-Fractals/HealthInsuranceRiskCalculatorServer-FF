@@ -47,7 +47,7 @@ app.get('/calculation', (request, response) => {
   let bpPoints = calcBP(blood)
 
   //We return our results as an object, namdes of value returned need to be comunicated
-  let results = {"sum": sum.toString(),"age":  agePoints,"BMI":  bmiPoints,"blood":  blood,"dis":  diseasePoints}
+  let results = {"sum": sum.toString(),"age":  agePoints,"BMI":  bmiPoints,"blood":  bpPoints,"dis":  diseasePoints}
 	response.type('text/plain')
 	response.json(results)
 })
