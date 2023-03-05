@@ -62,6 +62,18 @@ function calcAge(age){
   }
 }
 
+function calcDisease(disease) {
+  if (disease == 0) {
+    return 0
+  } else if (disease == 1) {
+    return 10
+  } else if (disease == 2) {
+    return 20
+  } else {
+    return 30
+  }
+}
+
 function calcBmi(height, weight){
   var bmi = (weight/(height^2))
   if ((height > 0) && (height < 3))
