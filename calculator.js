@@ -43,9 +43,10 @@ app.get('/calculation', (request, response) => {
   let sum = height + weight
   let agePoints = calcAge(age)
   let bmiPoints = calcBmi(height, weight)
+  let diseasePoints = calcDisease(disease)
 
   //We return our results as an object, namdes of value returned need to be comunicated
-  let results = {"sum": sum.toString(),"age":  agePoints,"BMI":  bmiPoints,"blood":  blood,"dis":  disease}
+  let results = {"sum": sum.toString(),"age":  agePoints,"BMI":  bmiPoints,"blood":  blood,"dis":  diseasePoints}
 	response.type('text/plain')
 	response.json(results)
 })
