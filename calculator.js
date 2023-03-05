@@ -64,14 +64,26 @@ function calcAge(age){
 
 function calcBmi(height, weight){
   var bmi = (weight/(height^2))
-  if (bmi < 24.9) {
-    return 0
-  } else if (bmi < 29.9) {
-    return 30
-  } else if (bmi < 34.9) {
-    return 75
+  if ((height > 0) && (height < 3))
+  {
+    if ((weight > 0) && (weight < 315))
+    {
+      if (bmi < 18.5) {
+        return "Error: Invalid BMI"
+      } else if (bmi < 24.9) {
+        return 0
+      } else if (bmi < 29.9) {
+        return 30
+      } else if (bmi < 34.9) {
+        return 75
+      } else {
+        return "Error: Invalid BMI"
+      }
+    } else {
+      return "Error: Invalid weight"
+    }
   } else {
-    return -1
+    return "Error: Invalid height"
   }
 }
 
