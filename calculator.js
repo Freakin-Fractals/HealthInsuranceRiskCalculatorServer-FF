@@ -42,9 +42,10 @@ app.get('/calculation', (request, response) => {
   //Example of calucation; should be replaced with functions eventually
   let sum = height + weight
   let agePoints = calcAge(age)
+  let bmiPoints = calcBmi(height, weight)
 
   //We return our results as an object, namdes of value returned need to be comunicated
-  let results = {"sum": sum.toString(),"age":  agePoints,"blood":  blood,"dis":  disease}
+  let results = {"sum": sum.toString(),"age":  agePoints,"BMI":  bmiPoints,"blood":  blood,"dis":  disease}
 	response.type('text/plain')
 	response.json(results)
 })
@@ -58,6 +59,19 @@ function calcAge(age){
     return 20
   } else {
     return 30
+  }
+}
+
+function calcBmi(height, weight){
+  var bmi = (weight/((height/100)^2))
+  if (bmi < 24.9) {
+    return 0
+  } else if (bmi < 29.9) {
+    return 30
+  } else if (bmi < 34.9) {
+    return 75
+  } else {
+    return -1
   }
 }
 
