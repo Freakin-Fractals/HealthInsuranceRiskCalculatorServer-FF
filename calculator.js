@@ -86,7 +86,7 @@ function calcAge(age){
 }
 
 function calcDisease(disease) {
-  if (((bpStage * 10) % 10) == 0){
+  if (((disease * 10) % 10) == 0){
     if (disease == 0) {
       return 0
     } else if (disease == 1) {
