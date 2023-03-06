@@ -52,6 +52,7 @@ app.get('/calculation', (request, response) => {
 	response.json(results)
 })
 
+
 function calcAge(age){
   if (age < 30) {
     return 0
