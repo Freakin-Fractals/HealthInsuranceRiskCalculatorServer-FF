@@ -44,7 +44,7 @@ app.get('/calculation', (request, response) => {
   let bmiPoints = calcBmi(height, weight)
   let diseasePoints = calcDisease(disease)
   let bpPoints = calcBP(blood)
-  let sum = agePoints + bmiPoints + diseasePoints + bpPoints
+  let sum = (agePoints + bmiPoints + diseasePoints + bpPoints)
   let risk = calcRisk(sum)
 
   //We return our results as an object, namdes of value returned need to be comunicated
