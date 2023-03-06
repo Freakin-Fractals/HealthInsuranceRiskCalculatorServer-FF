@@ -54,7 +54,9 @@ app.get('/calculation', (request, response) => {
 
 
 function calcAge(age){
-  if (age < 30) {
+  if (!Number.isInteger(age)){
+    return "Error: Invalid Age"
+  } else if (age < 30) {
     return 0
   } else if (age < 45) {
     return 10
