@@ -118,6 +118,9 @@ function calcBP(bpStage) {
   else if (bpStage == 5){
     return 100
   }
+  else {
+    return "Error: Invalid Blood Pressure Stage"
+  }
 }
 
 // custom 404 page
@@ -138,4 +141,3 @@ app.use((err, req, res, next) => {
 app.listen(port, () => console.log(
   `Express started on http://localhost:${port}; ` +
   `press Ctrl-C to terminate.`))
-
