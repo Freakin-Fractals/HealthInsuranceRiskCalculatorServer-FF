@@ -103,6 +103,9 @@ function calcBmi(height, weight){
 }
 
 function calcBP(bpStage) {
+  if ((bpStage * 10) % 10 != 0){
+    return "Error: Invalid Blood Pressure Stage"
+  }
   if (bpStage == 1) {
     return 0
   }
