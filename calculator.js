@@ -40,42 +40,66 @@ app.get('/calculation', (request, response) => {
   let disease = parseFloat(inputs.disease)
 
   //Example of calucation; should be replaced with functions eventually
-  let sum = height + weight
   let agePoints = calcAge(age)
   let bmiPoints = calcBmi(height, weight)
   let diseasePoints = calcDisease(disease)
   let bpPoints = calcBP(blood)
+  let sum = agePoints + bmiPoints + diseasePoints + bpPoints
+  let risk = calcRisk(sum)
 
   //We return our results as an object, namdes of value returned need to be comunicated
-  let results = {"sum": sum.toString(),"age":  agePoints,"BMI":  bmiPoints,"blood":  bpPoints,"dis":  diseasePoints}
+  let results = {"risk": risk,"age":  agePoints,"BMI":  bmiPoints,"blood":  bpPoints,"dis":  diseasePoints}
 	response.type('text/plain')
 	response.json(results)
 })
 
+function calcRisk(sum){
+  if (!Number.isInteger(sum)){
+    return "Error: Cannot Calculate Risk"
+  } else if (sum <= 20) {
+    return "low risk"
+  } else if (sum <= 50) {
+    return "moderate risk"
+  } else if (sum <= 75) {
+    return "high risk"
+  } else if (sum > 0){
+    return "uninsurable"
+  } else {
+    return "Error: Cannot Calculate Risk"
+  }
+}
 
 function calcAge(age){
   if (!Number.isInteger(age)){
     return "Error: Invalid Age"
-  } else if (age < 30) {
+  } else if ((age < 30) && (age > 0)) {
     return 0
   } else if (age < 45) {
     return 10
   } else if (age < 60) {
     return 20
-  } else {
+  } else if (age <= 120) {
     return 30
+  } else {
+    return "Error: Invalid Age"
   }
 }
 
 function calcDisease(disease) {
-  if (disease == 0) {
-    return 0
-  } else if (disease == 1) {
-    return 10
-  } else if (disease == 2) {
-    return 20
+  if (((bpStage * 10) % 10) == 0){
+    if (disease == 0) {
+      return 0
+    } else if (disease == 1) {
+      return 10
+    } else if (disease == 2) {
+      return 20
+    } else if (disease == 3) {
+      return 30
+    } else {
+      return "Error: Invalid Family Disease Count"
+    }
   } else {
-    return 30
+    return "Error: Invalid Family Disease Count"
   }
 }
 
