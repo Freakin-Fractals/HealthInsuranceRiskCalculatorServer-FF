@@ -103,7 +103,7 @@ function calcBmi(height, weight){
 }
 
 function calcBP(bpStage) {
-  if (((bpStage * 10) % 10) = 0){
+  if (((bpStage * 10) % 10) == 0){
     if (bpStage == 1) {
       return 0
     }
