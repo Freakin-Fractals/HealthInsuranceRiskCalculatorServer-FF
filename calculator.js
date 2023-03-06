@@ -33,11 +33,11 @@ app.get('/calculation', (request, response) => {
   console.log(inputs)
 
   //Here are the variables; if need to add more follow examples
-  let age = parseInt(inputs.age)
-	let height = parseInt(inputs.height)
-	let weight = parseInt(inputs.weight)
-  let blood = parseInt(inputs.blood)
-  let disease = parseInt(inputs.disease)
+  let age = parseFloat(inputs.age)
+	let height = parseFloat(inputs.height)
+	let weight = parseFloat(inputs.weight)
+  let blood = parseFloat(inputs.blood)
+  let disease = parseFloat(inputs.disease)
 
   //Example of calucation; should be replaced with functions eventually
   let sum = height + weight
