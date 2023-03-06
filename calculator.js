@@ -32,7 +32,7 @@ app.get('/calculation', (request, response) => {
   //Using this we can see the values that the site sent us, and their names
   console.log(inputs)
 
-  //Here are the variables; if need to add more follow examples
+  //Here are the variables
   let age = parseFloat(inputs.age)
 	let height = parseFloat(inputs.height)
 	let weight = parseFloat(inputs.weight)
