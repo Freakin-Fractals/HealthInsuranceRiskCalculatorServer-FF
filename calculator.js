@@ -103,25 +103,26 @@ function calcBmi(height, weight){
 }
 
 function calcBP(bpStage) {
-  if ((bpStage * 10) % 10 != 0){
-    return "Error: Invalid Blood Pressure Stage"
-  }
-  if (bpStage == 1) {
-    return 0
-  }
-  else if (bpStage == 2) {
-    return 15
-  }
-  else if (bpStage == 3){
-    return 30
-  }
-  else if (bpStage == 4){
-    return 75
-  }
-  else if (bpStage == 5){
-    return 100
-  }
-  else {
+  if (((bpStage * 10) % 10) = 0){
+    if (bpStage == 1) {
+      return 0
+    }
+    else if (bpStage == 2) {
+      return 15
+    }
+    else if (bpStage == 3){
+      return 30
+    }
+    else if (bpStage == 4){
+      return 75
+    }
+    else if (bpStage == 5){
+      return 100
+    }
+    else {
+      return "Error: Invalid Blood Pressure Stage"
+    }
+  } else {
     return "Error: Invalid Blood Pressure Stage"
   }
 }
