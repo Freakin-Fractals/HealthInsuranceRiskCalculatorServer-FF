@@ -70,9 +70,9 @@ function calcRisk(sum){
 }
 
 function calcAge(age){
-  if (!Number.isInteger(age)){
+  if (!Number.isInteger(age) || age < 0){
     return "Error: Invalid Age"
-  } else if ((age < 30) && (age > 0)) {
+  } else if ((age < 30)) {
     return 0
   } else if (age < 45) {
     return 10
